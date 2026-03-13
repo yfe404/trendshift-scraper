@@ -18,7 +18,7 @@
     },
     "scripts": {
         "start": "npm run build && node dist/main.js",
-        "build": "tsc",
+        "build": "npx tsc",
         "dev": "tsx src/main.ts"
     }
 }
