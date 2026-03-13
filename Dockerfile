@@ -2,7 +2,7 @@ FROM apify/actor-node:20 AS builder
 
 COPY package*.json ./
 RUN npm --quiet set progress=false \
-    && npm install \
+    && NODE_ENV=development npm install \
     && echo "Installed NPM packages:" \
     && (npm list --all || true) \
     && echo "Node.js version:" \
@@ -11,7 +11,7 @@ RUN npm --quiet set progress=false \
     && npm --version
 
 COPY . ./
-RUN npm run build
+RUN ./node_modules/.bin/tsc
 
 # Remove dev dependencies after build
 RUN npm prune --omit=dev
