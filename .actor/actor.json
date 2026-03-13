@@ -1,0 +1,12 @@
+{
+    "actorSpecification": 1,
+    "name": "trendshift-scraper",
+    "title": "TrendShift.io Scraper",
+    "description": "Scrapes trending GitHub repository and developer data from trendshift.io including daily explore, GitHub trending, developer trends, repository engagements, and language stats.",
+    "version": "0.0",
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    }
+}

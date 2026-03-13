@@ -1,0 +1,145 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "dailyExplore": {
+            "title": "Daily Explore",
+            "description": "Top 25 repositories by daily engagement score",
+            "transformation": {
+                "fields": [
+                    "rank",
+                    "score",
+                    "full_name",
+                    "repository_language",
+                    "repository_stars",
+                    "repository_forks",
+                    "repository_description",
+                    "date",
+                    "repository_created_at"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "rank": { "label": "Rank", "format": "number" },
+                    "score": { "label": "Engagement Score", "format": "number" },
+                    "full_name": { "label": "Repository", "format": "text" },
+                    "repository_language": { "label": "Language", "format": "text" },
+                    "repository_stars": { "label": "Stars", "format": "number" },
+                    "repository_forks": { "label": "Forks", "format": "number" },
+                    "repository_description": { "label": "Description", "format": "text" },
+                    "date": { "label": "Date", "format": "text" },
+                    "repository_created_at": { "label": "Created At", "format": "text" }
+                }
+            }
+        },
+        "githubTrending": {
+            "title": "GitHub Trending Repositories",
+            "description": "Repositories ranked by number of GitHub Trending appearances",
+            "transformation": {
+                "fields": [
+                    "rank",
+                    "full_name",
+                    "language",
+                    "stars",
+                    "forks",
+                    "trending_count",
+                    "description",
+                    "github_url"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "rank": { "label": "Rank", "format": "number" },
+                    "full_name": { "label": "Repository", "format": "text" },
+                    "language": { "label": "Language", "format": "text" },
+                    "stars": { "label": "Stars", "format": "text" },
+                    "forks": { "label": "Forks", "format": "text" },
+                    "trending_count": { "label": "Trending Days", "format": "number" },
+                    "description": { "label": "Description", "format": "text" },
+                    "github_url": { "label": "GitHub URL", "format": "text" }
+                }
+            }
+        },
+        "trendingDevelopers": {
+            "title": "Trending Developers",
+            "description": "Developers ranked by trending frequency",
+            "transformation": {
+                "fields": [
+                    "username",
+                    "trending_count",
+                    "avatar_url",
+                    "trendshift_url"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "username": { "label": "Username", "format": "text" },
+                    "trending_count": { "label": "Trending Days", "format": "number" },
+                    "avatar_url": { "label": "Avatar", "format": "text" },
+                    "trendshift_url": { "label": "TrendShift URL", "format": "text" }
+                }
+            }
+        },
+        "repositoryEngagements": {
+            "title": "Repository Engagements",
+            "description": "Monthly engagement metrics per repository (stars, forks, PRs, issues)",
+            "transformation": {
+                "fields": [
+                    "repository_name",
+                    "repository_language",
+                    "stars",
+                    "forks",
+                    "merged_prs",
+                    "issues",
+                    "closed_issues",
+                    "year",
+                    "month",
+                    "repository_stars",
+                    "repository_forks"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "repository_name": { "label": "Repository", "format": "text" },
+                    "repository_language": { "label": "Language", "format": "text" },
+                    "stars": { "label": "Stars (Month)", "format": "number" },
+                    "forks": { "label": "Forks (Month)", "format": "number" },
+                    "merged_prs": { "label": "Merged PRs", "format": "number" },
+                    "issues": { "label": "Issues", "format": "number" },
+                    "closed_issues": { "label": "Closed Issues", "format": "number" },
+                    "year": { "label": "Year", "format": "number" },
+                    "month": { "label": "Month", "format": "number" },
+                    "repository_stars": { "label": "Total Stars", "format": "number" },
+                    "repository_forks": { "label": "Total Forks", "format": "number" }
+                }
+            }
+        },
+        "stats": {
+            "title": "Language Stats",
+            "description": "Monthly stars and forks aggregated by programming language",
+            "transformation": {
+                "fields": [
+                    "language",
+                    "year",
+                    "month",
+                    "stars",
+                    "forks"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "language": { "label": "Language", "format": "text" },
+                    "year": { "label": "Year", "format": "number" },
+                    "month": { "label": "Month", "format": "number" },
+                    "stars": { "label": "Stars", "format": "number" },
+                    "forks": { "label": "Forks", "format": "number" }
+                }
+            }
+        }
+    }
+}
