@@ -2,9 +2,9 @@ FROM apify/actor-node:20 AS builder
 
 COPY package*.json ./
 RUN npm --quiet set progress=false \
-    && npm install --only=prod --no-optional \
+    && npm install \
     && echo "Installed NPM packages:" \
-    && (npm list --only=prod --no-optional --all || true) \
+    && (npm list --all || true) \
     && echo "Node.js version:" \
     && node --version \
     && echo "NPM version:" \
@@ -13,6 +13,9 @@ RUN npm --quiet set progress=false \
 COPY . ./
 RUN npm run build
 
+# Remove dev dependencies after build
+RUN npm prune --omit=dev
+
 FROM apify/actor-node:20
 
 COPY --from=builder /usr/src/app/package*.json ./
@@ -20,4 +23,4 @@ COPY --from=builder /usr/src/app/node_modules ./node_modules
 COPY --from=builder /usr/src/app/dist ./dist
 COPY .actor ./.actor
 
-CMD npm run start:prod --silent
+CMD node dist/main.js
